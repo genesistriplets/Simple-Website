@@ -3,318 +3,573 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>E-Portfolio For Reading and Writing</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        /* General Reset */
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
         }
 
-        /* Banner Styles */
+        /* Dark Mode Theme with Blue-Purple Gradient */
+        body {
+            background: linear-gradient(to bottom right, #0a0a0a, #1b1b2f);
+            color: #e0e0e0;
+            line-height: 1.8;
+        }
+
+        /* Header */
+        header {
+            background: #1b1b2f;
+            color: #9f86ff;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            border-bottom: 3px solid #7b2cbf;
+            box-shadow: 0 2px 20px rgba(123, 44, 191, 0.3);
+        }
+
+
+
+        /* Banner Section */
         .banner {
             position: relative;
-            width: 100%;
-            height: 50vh;
-            background: url('images/banner.jpg') no-repeat center center/cover;
+            background: linear-gradient(135deg, #1b1b2f 30%, #3a0ca3 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            height: 350px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #fff;
             text-align: center;
-        }
-        .banner::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-        }
-        .banner-content {
-            position: relative;
-            z-index: 1;
-        }
-        .banner h1 {
-            font-size: 3em;
-            margin: 0;
-            text-transform: uppercase;
-        }
-        .banner p {
-            font-size: 1.5em;
-            margin-top: 10px;
-        }
-
-        header {
-            background: #333;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }
-        section {
-            padding: 20px;
-            text-align: center;
-        }
-
-        /* Pop-up animation styles */
-        .pop-up {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        .pop-up.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Gallery styles */
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-        }
-        .image img {
-            width: 200px;
-            height: 150px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-            cursor: pointer;
-        }
-        .image img:hover {
-            transform: scale(1.1);
-        }
-
-        /* Modal styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.9);
-            align-items: center;
-            justify-content: center;
             flex-direction: column;
-            text-align: center;
-        }
-        .modal img {
-            max-width: 90%;
-            max-height: 80%;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(255,255,255,0.3);
-        }
-        .modal p {
-            color: #fff;
-            font-size: 1.5em;
-            margin-top: 10px;
-        }
-        .modal .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 2em;
-            color: #fff;
-            cursor: pointer;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(58, 12, 163, 0.5);
+            padding: 40px;
         }
 
-        footer {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-            position: relative;
-            bottom: 0;
-            width: 100%;
+        .banner h1 {
+            font-size: 52px;
+            font-weight: 700;
+            color: #9f86ff;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 10px rgba(159, 134, 255, 0.8);
+        }
+
+        .banner p {
+            font-size: 20px;
+            color: #c0b3ff;
+            max-width: 800px;
         }
 
         /* Content Section */
-        .content-section {
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 50px auto;
+        }
+
+        .content {
+            background: rgba(30, 30, 47, 0.9);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+            border-left: 5px solid #7b2cbf;
+        }
+
+        .content h1 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            color: #7b2cbf;
+        }
+
+        .content p {
+            font-size: 18px;
+            color: #d0d0d0;
+        }
+
+        /* Templates Container */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 80px auto;
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+        }
+
+        /* Template Box */
+        .template {
+            background: rgba(30, 30, 47, 0.9);
+            padding: 60px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            border-left: 8px solid #7b2cbf;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .template:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(123, 44, 191, 0.5);
+        }
+
+        .template img {
+            width: 100%;
+            max-height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .template h2 {
+            font-size: 32px;
+            color: #9f86ff;
+            margin-bottom: 20px;
+        }
+
+        .template p {
+            font-size: 20px;
+            color: #c0b3ff;
+        }
+
+ /* About Me Section */
+        .about-me {
+            width: 90%;
+            max-width: 1200px;
+            margin: 100px auto;
             display: flex;
             align-items: center;
-            justify-content: center;
-            padding: 50px 20px;
-            background: #fff;
-            max-width: 1000px;
-            margin: 50px auto;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            border-radius: 10px;
-        }
-        .content-image img {
-            width: 300px;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .content-description {
-            margin-left: 20px;
-            max-width: 500px;
-        }
-        .content-description h2 {
-            font-size: 2em;
-            margin: 0 0 10px;
-        }
-        .content-description p {
-            font-size: 1.2em;
-            color: #555;
-            line-height: 1.5;
+            gap: 50px;
+            background: rgba(30, 30, 47, 0.9);
+            padding: 60px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            border-left: 8px solid #7b2cbf;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-.testimonial-section {
-    background: #f4f4f4;
-    padding: 50px 20px;
-    text-align: center;
-}
+        .about-me:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(123, 44, 191, 0.5);
+        }
 
-.testimonial-section h2 {
-    font-size: 2.5em;
-    margin-bottom: 20px;
-}
+        .about-me img {
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 4px solid #7b2cbf;
+        }
 
-.testimonials {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
+        .about-me .text-content {
+            max-width: 600px;
+        }
 
-.testimonial {
-    background: #fff;
-    padding: 20px;
-    width: 300px;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
-    text-align: left;
-}
+        .about-me h1 {
+            font-size: 42px;
+            color: #9f86ff;
+            margin-bottom: 20px;
+        }
 
-.testimonial p {
-    font-size: 1.2em;
-    color: #333;
-}
+        .about-me h3 {
+            font-size: 24px;
+            color: #c0b3ff;
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
 
-.testimonial strong {
-    display: block;
-    margin-top: 10px;
-    font-weight: bold;
-}
+        .about-me p {
+            font-size: 18px;
+            color: #e0e0e0;
+            line-height: 1.8;
+        }
+
+   /* Portfolio Section Template */
+        .portfolio-section {
+            width: 90%;
+            max-width: 1200px;
+            margin: 100px auto;
+            display: flex;
+            gap: 50px;
+            background: rgba(30, 30, 47, 0.9);
+            padding: 60px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            border-left: 8px solid #7b2cbf;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .portfolio-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(123, 44, 191, 0.5);
+        }
+
+        .portfolio-section img {
+            width: 400px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 4px solid #7b2cbf;
+        }
+
+        .portfolio-section .text-content {
+            max-width: 600px;
+        }
+
+        .portfolio-section h2 {
+            font-size: 32px;
+            color: #9f86ff;
+            margin-bottom: 20px;
+        }
+
+        .portfolio-section p {
+            font-size: 20px;
+            color: #c0b3ff;
+            line-height: 1.8;
+        }
+
+
+        /* Footer */
+        footer {
+            background: #1b1b2f;
+            color: #9f86ff;
+            text-align: center;
+            padding: 30px 0;
+            font-size: 16px;
+            margin-top: 100px;
+            border-top: 3px solid #7b2cbf;
+        }
+
+/* Responsive Design */
+        @media (max-width: 768px) {
+            .portfolio-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .portfolio-section img {
+                width: 80%;
+                max-width: 300px;
+            }
+
+            .portfolio-section h2 {
+                font-size: 28px;
+            }
+
+            .portfolio-section p {
+                font-size: 18px;
+            }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .template {
+                padding: 40px;
+            }
+
+            .template img {
+                max-height: 200px;
+            }
+
+            .template h2 {
+                font-size: 28px;
+            }
+
+            .template p {
+                font-size: 18px;
+            }
+
+        }
+
+ /* Responsive Design */
+        @media (max-width: 768px) {
+            .about-me {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-me img {
+                width: 80%;
+                max-width: 300px;
+            }
+
+            .about-me h1 {
+                font-size: 32px;
+            }
+
+            .about-me h3 {
+                font-size: 20px;
+            }
+
+            .about-me p {
+                font-size: 16px;
+            }
+
+ /* Testimonial Section */
+        .testimonial {
+            background: rgba(30, 30, 47, 0.9);
+            padding: 50px;
+            max-width: 1200px;
+            margin: 100px auto;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            border-left: 8px solid #7b2cbf;
+            text-align: center;
+        }
+
+        .testimonial h2 {
+            font-size: 36px;
+            color: #9f86ff;
+            margin-bottom: 20px;
+        }
+
+        .testimonial p {
+            font-size: 20px;
+            color: #c0b3ff;
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        .testimonial .author {
+            font-size: 22px;
+            color: #e0e0e0;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .portfolio-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .portfolio-section img {
+                width: 80%;
+                max-width: 300px;
+            }
+
+            .portfolio-section h2 {
+                font-size: 28px;
+            }
+
+            .portfolio-section p {
+                font-size: 18px;
+            }
+
+            .testimonial h2 {
+                font-size: 28px;
+            }
+
+            .testimonial p {
+                font-size: 18px;
+            }
+
+            .testimonial .author {
+                font-size: 18px;
+            }
 
     </style>
 </head>
 <body>
-
-    <!-- Banner Section -->
-    <div class="banner">
-        <div class="banner-content">
-            <h1>Welcome to My Portfolio</h1>
-            <p>SullezaPortfolio.Online</p>
-        </div>
-    </div>
-
     <header>
-        <h1>My Portfolio</h1>
+       <h3>sullezaportfolio.com</h3>
+	<h5>My portfolio on reading and writing</h5>
     </header>
 
-    <!-- Content Section with Pop-up Animation -->
-    <section class="content-section pop-up">
-        <div class="content-image">
-            <img src="images/template.jpg" alt="Template Image">
+    <div class="about-me">
+        <img src="https://via.placeholder.com/400" alt="Your Picture Here">
+        <div class="text-content">
+            <h1>ABOUT ME</h1>
+            <h3>My name's Genesis Parreño Sulleza</h3>
+            <p>
+                This is where you can introduce yourself. Mention your background, interests, and what drives you.
+                Feel free to add more details about your personal or professional journey.
+            </p>
         </div>
-        <div class="content-description">
-            <h2>Project Title</h2>
-            <p>This is a sample description for the project. It provides an overview of the project goals, the technologies used, and the outcomes achieved.</p>
-        </div>
-    </section>
+    </div>
 
-    <section id="portfolio">
-        <h2>My Work</h2>
-        <div class="gallery">
-            <div class="image pop-up" onclick="openModal('images/project1.jpg', 'This is a description of Project 1.')">
-                <img src="images/project1.jpg" alt="Project 1">
-            </div>
-            <div class="image pop-up" onclick="openModal('images/project2.jpg', 'This is a description of Project 2.')">
-                <img src="images/project2.jpg" alt="Project 2">
-            </div>
-            <div class="image pop-up" onclick="openModal('images/project3.jpg', 'This is a description of Project 3.')">
-                <img src="images/project3.jpg" alt="Project 3">
-            </div>
+<div class="container">
+        <div class="banner">
+            <h1>Banner Header</h1>
+            <p>Your professional tagline or a brief description goes here. This section can be easily customized.</p>
         </div>
-    </section>
 
-    <section class="content-section pop-up">
-        <div class="content-image">
-            <img src="images/template.jpg" alt="Template Image">
+    <div class="container">
+        <!-- Template 1: Full-Width Image with Text -->
+        <div class="template">
+            <img src="https://via.placeholder.com/800x400" alt="Placeholder">
+            <h2>Full-Width Image with Text</h2>
+            <p>Perfect for showcasing large visuals with a short description below.</p>
         </div>
-        <div class="content-description">
-            <h2>Project Title</h2>
-            <p>This is a sample description for the project. It provides an overview of the project goals, the technologies used, and the outcomes achieved.</p>
+
+        <!-- Template 2: Side Image Layout -->
+        <div class="template">
+            <img src="https://via.placeholder.com/400x400" alt="Placeholder" style="float: left; margin-right: 30px; max-width: 40%;">
+            <h2>Side Image Layout</h2>
+            <p>This is great for presenting content with a supporting image beside it.</p>
+            <div style="clear: both;"></div>
         </div>
-    </section>
+
+        <!-- Template 3: Grid Layout with Multiple Images -->
+        <div class="template">
+            <img src="https://via.placeholder.com/200" alt="Placeholder">
+            <img src="https://via.placeholder.com/200" alt="Placeholder">
+            <img src="https://via.placeholder.com/200" alt="Placeholder">
+            <h2>Image Grid</h2>
+            <p>Use this for portfolio showcases or multiple related images.</p>
+        </div>
+
+        <!-- Template 4: Quote Section -->
+        <div class="template">
+            <h2>"Inspirational Quote"</h2>
+            <p>- Author Name</p>
+            <p>A simple way to showcase an important quote or message.</p>
+        </div>
+
+        <!-- Template 5: Profile Card -->
+        <div class="template">
+            <img src="https://via.placeholder.com/200" alt="Profile Picture" style="border-radius: 50%; width: 150px;">
+            <h2>Profile Card</h2>
+            <p>Introduce yourself with a profile picture and description.</p>
+        </div>
+
+        <!-- Template 6: Call-to-Action Section -->
+        <div class="template">
+            <h2>Call to Action</h2>
+            <p>Encourage users to take action with this call-to-action section.</p>
+        </div>
+    </div>
+
+
+    <!-- Portfolio Section 1 -->
+    <div class="portfolio-section">
+        <img src="https://via.placeholder.com/400" alt="Project 1">
+        <div class="text-content">
+            <h2>Project Title 1</h2>
+            <p>
+                This is a brief description of the project. You can highlight the key features, technologies used, or goals achieved.
+            </p>
+        </div>
+    </div>
+
+    <!-- Portfolio Section 2 -->
+    <div class="portfolio-section">
+        <img src="https://via.placeholder.com/400" alt="Project 2">
+        <div class="text-content">
+            <h2>Project Title 2</h2>
+            <p>
+                Another project description goes here. Feel free to include details about the creative process, challenges, and outcomes.
+            </p>
+        </div>
+    </div>
+
+    <!-- Portfolio Section 3 -->
+    <div class="portfolio-section">
+        <img src="https://via.placeholder.com/400" alt="Project 3">
+        <div class="text-content">
+            <h2>Project Title 3</h2>
+            <p>
+                Explain the project with more details here. Include any tools, frameworks, or skills you used.
+            </p>
+        </div>
+    </div>
+
+    <!-- Portfolio Section 4 -->
+    <div class="portfolio-section">
+        <img src="https://via.placeholder.com/400" alt="Project 4">
+        <div class="text-content">
+            <h2>Project Title 4</h2>
+            <p>
+                Briefly describe your fourth project. Mention what makes it special and what you've learned.
+            </p>
+        </div>
+    </div>
+
+    <!-- Portfolio Section 5 -->
+    <div class="portfolio-section">
+        <img src="https://via.placeholder.com/400" alt="Project 5">
+        <div class="text-content">
+            <h2>Project Title 5</h2>
+            <p>
+                This is the fifth project. Discuss its importance and any results that came from it.
+            </p>
+        </div>
+    </div>
+
+    <!-- Portfolio Section 6 -->
+    <div class="portfolio-section">
+        <img src="https://via.placeholder.com/400" alt="Project 6">
+        <div class="text-content">
+            <h2>Project Title 6</h2>
+            <p>
+                Add a brief description of this sixth project. You can also talk about its impact.
+            </p>
+        </div>
+    </div>
+
+    <!-- Portfolio Section 7 -->
+    <div class="portfolio-section">
+        <img src="https://via.placeholder.com/400" alt="Project 7">
+        <div class="text-content">
+            <h2>Project Title 7</h2>
+            <p>
+                Provide more insights into this project. What challenges did you face, and how did you overcome them?
+            </p>
+        </div>
+    </div>
+
+    <!-- Portfolio Section 8 -->
+    <div class="portfolio-section">
+        <img src="https://via.placeholder.com/400" alt="Project 8">
+        <div class="text-content">
+            <h2>Project Title 8</h2>
+            <p>
+                Describe the eighth project, its goals, and any technologies or techniques you applied.
+            </p>
+        </div>
+    </div>
+
+    <!-- Portfolio Section 9 -->
+    <div class="portfolio-section">
+        <img src="https://via.placeholder.com/400" alt="Project 9">
+        <div class="text-content">
+            <h2>Project Title 9</h2>
+            <p>
+                This is the description for project number nine. You can add project outcomes and learnings here.
+            </p>
+        </div>
+    </div>
+
+    <!-- Portfolio Section 10 -->
+    <div class="portfolio-section">
+        <img src="https://via.placeholder.com/400" alt="Project 10">
+        <div class="text-content">
+            <h2>Project Title 10</h2>
+            <p>
+                Lastly, describe your tenth project and its significance. Share any feedback or results received.
+            </p>
+        </div>
+    </div>
+
 
     <footer>
-        <p>&copy; Sullezaportfolio.online. All rights reserved.</p>
+        &copy; 2025 My Professional Templates. All rights reserved.
     </footer>
 
-    <!-- Modal -->
-    <div id="imageModal" class="modal">
-        <span class="close-btn" onclick="closeModal()">×</span>
-        <img id="modalImage" src="" alt="Fullscreen Image">
-        <p id="modalDescription"></p>
-    </div>
-
-<section class="testimonial-section">
-    <h2>What People Are Saying</h2>
-    <div class="testimonials">
-        <div class="testimonial">
-            <p>"Your  Mom"</p>
-            <p><strong>Jane Doe</strong> - CEO, Company</p>
-        </div>
-        <div class="testimonial">
-            <p>"Hi sir"</p>
-            <p><strong>John Smith</strong> - Founder, Startup</p>
+  <!-- Testimonial Section -->
+    <div class="testimonial">
+        <h2>What Others Are Saying</h2>
+        <p>
+            "This website design is amazing! It's clean, professional, and easy to navigate. I love how the portfolio sections are laid out and the modern aesthetic. Truly a reflection of great work!"
+        </p>
+        <div class="author">
+            - John Doe, Web Developer
         </div>
     </div>
-</section>
-
-    <script>
-        // Function to open modal
-        function openModal(imageSrc, description) {
-            const modal = document.getElementById('imageModal');
-            const modalImage = document.getElementById('modalImage');
-            const modalDescription = document.getElementById('modalDescription');
-            
-            modal.style.display = 'flex';
-            modalImage.src = imageSrc;
-            modalDescription.textContent = description;
-        }
-
-        // Function to close modal
-        function closeModal() {
-            document.getElementById('imageModal').style.display = 'none';
-        }
-
-        // IntersectionObserver for pop-up animation
-        const elements = document.querySelectorAll('.pop-up');
-        
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('show');
-                } else {
-                    entry.target.classList.remove('show');
-                }
-            });
-        }, { threshold: 0.5 });
-
-        elements.forEach(element => {
-            observer.observe(element);
-        });
-    </script>
 
 </body>
 </html>
