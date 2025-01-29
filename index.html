@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>E-Portfolio for Reading and Writing</title>
+    <title>E-Portfolio For Reading and Writing</title>
     <style>
         /* General Reset */
         * {
@@ -72,6 +72,15 @@
             margin: 50px auto;
         }
 
+        }
+
+        /* Content Section */
+        .container2 {
+            width: 90%;
+            max-width: 500px;
+            margin: 50px auto;
+        }
+
         .content {
             background: rgba(30, 30, 47, 0.9);
             padding: 30px;
@@ -108,8 +117,9 @@
             border-radius: 15px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
             border-left: 8px solid #7b2cbf;
-            text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
         }
 
         .template:hover {
@@ -129,12 +139,64 @@
             font-size: 32px;
             color: #9f86ff;
             margin-bottom: 20px;
+            text-align: Center
         }
 
         .template p {
             font-size: 20px;
             color: #c0b3ff;
+            text-align: justify
+
         }
+
+        /* Content Section */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+/* Box Container for Left & Right Alignment */
+.box-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* Small Template Box */
+.small-box {
+    background: rgba(30, 30, 47, 0.9);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    border-left: 5px solid #7b2cbf;
+    width: 48%; /* Adjust the width to make them smaller */
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Image inside the small box (optional) */
+.small-box img {
+    width: 100%;
+    max-height: 150px; /* Adjust image size */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 5px;
+}
+
+/* Title */
+.small-box h3 {
+    font-size: 24px;
+    color: #7b2cbf;
+    margin-bottom: 5px;
+}
+
+/* Text inside the small box */
+.small-box p {
+    font-size: 16px;
+    color: #d0d0d0;
+}
 
  /* About Me Section */
         .about-me {
@@ -167,6 +229,7 @@
 
         .about-me .text-content {
             max-width: 600px;
+            text-align: justify
         }
 
         .about-me h1 {
@@ -282,13 +345,16 @@
                 font-size: 18px;
             }
 
+            .template h3 {
+                font-size: 28px;
+            }
         }
 
  /* Responsive Design */
         @media (max-width: 768px) {
             .about-me {
                 flex-direction: column;
-                text-align: center;
+                text-align: justify;
             }
 
             .about-me img {
@@ -344,7 +410,7 @@
         @media (max-width: 768px) {
             .portfolio-section {
                 flex-direction: column;
-                text-align: center;
+                text-align: justify;
             }
 
             .portfolio-section img {
@@ -372,12 +438,70 @@
                 font-size: 18px;
             }
 
+            .lj p {
+                text-align: justify
+            }
+             .rj {
+                text-align: right
+            }
+/* Content Section */
+.container1 {
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto;
+}
+            /* Box Container for Left & Right Alignment */
+.box-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping for responsiveness */
+    gap: 20px;
+    justify-content: space-between;
+}
+
+/* Box with Context at the Bottom */
+.box {
+    background: rgba(30, 30, 47, 0.9);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    border-left: 5px solid #7b2cbf;
+    width: calc(50% - 10px); /* Auto adjust to 50% width for two items */
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+    box-sizing: border-box;
+}
+
+.box img {
+    width: 100%; /* Image will take full width of the box */
+    max-height: 200px; /* Optional: limit the height of the image */
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.box h3 {
+    font-size: 24px;
+    color: #7b2cbf;
+    margin-bottom: 10px;
+}
+
+.box p {
+    font-size: 16px;
+    color: #d0d0d0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .box {
+        width: 100%; /* On smaller screens, boxes will take full width */
+    }
+}
     </style>
 </head>
 <body>
     <header>
        <h3>sullezaportfolio.online</h3>
-	<h5>My portfolio on reading and writing</h5>
+	<h5>My portfolio for Reading and Writing</h5>
     </header>
 
     <div class="about-me">
@@ -386,25 +510,123 @@
             <h1>ABOUT ME</h1>
             <h3>My name's Genesis Parreño Sulleza</h3>
             <p>
-                This is where you can introduce yourself. Mention your background, interests, and what drives you.
-                Feel free to add more details about your personal or professional journey.
+                Seventeen years old and striving to become a computer engineering student someday. My hobbies are mainly tinkering with random things I find that interests me, and randomly, geography. I'm known for my skills when it comes to computers and such and I'm also a heavy procrastinator, but manages to cram all of it in time. I rarely get angry and just either composed or very, very energetic. I value my life very much and would spend all of it to have fun rather than to have stress.
             </p>
         </div>
     </div>
 
-<div class="container">
+<div class="container2">
         <div class="banner">
-            <h1>Banner Header</h1>
-            <p>Your professional tagline or a brief description goes here. This section can be easily customized.</p>
+            <h1>The purpose</h1>
+            <p>This e-portfolio serves as a digital showcase of my reading and writing skills developed throughout the 3rd Quarter of the Second Semester of my Grade 11 years. It reflects my growth as a reader and writer, demonstrating my ability to understand, learn and go back to the basic concepts on the structure of the english language.</p>
         </div>
+
+
+<div class="container">
+    <div class="box-container">
+        <!-- First Box -->
+        <div class="small-box">
+            <!-- <img src="image.jpg" alt="Optional Image"> <!-- Optional Image -->
+            <h2>Week-I</h2>
+            <h3>The Fundemental Reading Skills</h3>
+        </div>
+    </div>
 
     <div class="container">
         <!-- Template 1: Full-Width Image with Text -->
         <div class="template">
-            <img src="https://via.placeholder.com/800x400" alt="Placeholder">
-            <h2>Full-Width Image with Text</h2>
-            <p>Perfect for showcasing large visuals with a short description below.</p>
+            <h2>Introduction</h2>
+            <p>Reading has had a detremental part of my life. When I was a todler, I was taught by my mother how to read on a very young age and it greatly helped me expand my knowledge on a lot of things from an early age.</p>
+            <br>
+            <h3>What is reading?</h3>
+            <p>Well, in my definition of reading, it is a way to encode or take in the symbols or words you are reading, and then decoding it to understand what is the meaning of said symbols.</p>
         </div>
+
+        <div class="container">
+    <div class="box-container">
+        <!-- First Box -->
+        <div class="small-box">
+            <!-- <img src="image.jpg" alt="Optional Image"> <!-- Optional Image -->
+            <h1>The usefulness of reading</h1>
+            <!-- <h3>Why is reading useful?</h3> -->
+        </div>
+    </div>
+
+        <div class="container1">
+    <div class="box-container">
+        <!-- First Box -->
+        <div class="box">
+            <!-- <img src="image1.jpg" alt="Image 1"> <!-- Optional Image -->
+            <h3>A way to communicate</h3>
+            <p align-text: justify; >What I think is useful about reading is that, in our modern society, we tend to appriciate more of our technological advancements when it comes to communication. To be specific, communication with far away distances. Back then, we wrote letters to people, use telegram, and before all of those well structured messaging systems, we used to use the smoke to signal meanings, and someone transcribes it. Basically, without reading, we'l probably be stuck in the stone age.</p>
+        </div>
+
+        <!-- Second Box -->
+        <div class="box">
+             <!-- <img src="image2.jpg" alt="Image 2"> <!-- Optional Image -->
+            <h3>To save our history</h3>
+            <p>Without reading, how can't there be writing? History and cultures would be lost since we can't record it. The word of mouth only has a short lifespan as it will later grow old. And we'll basically not learn from all our mistakes.'</p>
+        </div>
+
+        <!-- Second Box -->
+        <div class="box">
+             <!-- <img src="image2.jpg" alt="Image 2"> <!-- Optional Image -->
+            <h3>To learn</h3>
+            <p>We've progressed a lot as a Socity, and reading has became a part of our lives as it helps us be educated, be entertained with, and understand concepts that can't be said. Reading has helped me, you, all of us to be ishape our world this way.</p>
+        </div>
+
+
+
+        <!-- Add more boxes as needed -->
+    </div>
+</div>
+
+ <div class="container">
+        <!-- Template 1: Full-Width Image with Text -->
+        <div class="template">
+            <h2>Stages of Reading</h2>
+            <p>The stages of reading development refer to the sequential progression of skills and abilities a person acquires as they learn to read. These stages typically involve a gradual shift from basic awareness of print to fluent and independent reading comprehension. It is basically a framework, describing the evolving relationship between the reader and the text as they move from initial exposure to proficient literacy.</p>
+            <br>
+            <h3>There are three stages of reading</h3>
+            <p>*Pre-reading</p>
+            <p>*During reading</p>
+            <p>*Post-reading</p>
+        </div>
+
+                <!-- Template 2: Side Image Layout -->
+        <div class="template">
+            <img src="https://via.placeholder.com/400x400" alt="Placeholder" style="float: left; margin-right: 30px; max-width: 40%;">
+            <h2>Pre-Reading</h2>
+            <p></p>
+            <div style="clear: both;"></div>
+        </div>
+
+                <!-- Template 2: Side Image Layout -->
+        <div class="template">
+            <img src="https://via.placeholder.com/400x400" alt="Placeholder" style="float: left; margin-right: 30px; max-width: 40%;">
+            <h2>During Reading</h2>
+            <p>This is great for presenting content with a supporting image beside it.</p>
+            <div style="clear: both;"></div>
+        </div>
+
+                <!-- Template 2: Side Image Layout -->
+        <div class="template">
+            <img src="https://via.placeholder.com/400x400" alt="Placeholder" style="float: left; margin-right: 30px; max-width: 40%;">
+            <h2>Post-Reading</h2>
+            <p>This is great for presenting content with a supporting image beside it.</p>
+            <div style="clear: both;"></div>
+        </div>
+
+        <div class="container1">
+    <div class="box-container">
+        <!-- First Box -->
+        <div class="box">
+            <img src="image1.jpg" alt="Image 1"> <!-- Optional Image -->
+            <h3>A way to communicate</h3>
+            <p align-text: justify; >What I think is useful about reading is that, in our modern society, we tend to appriciate more of our technological advancements when it comes to communication. To be specific, communication with far away distances. Back then, we wrote letters to people, use telegram, and before all of those well structured messaging systems, we used to use the smoke to signal meanings, and someone transcribes it. Basically, without reading, we'l probably be stuck in the stone age.</p>
+        </div>
+    </div>
+</div>
 
         <!-- Template 2: Side Image Layout -->
         <div class="template">
@@ -523,7 +745,7 @@
     </div>
 
     <!-- Portfolio Section 8 -->
-    <div class="portfolio-section">
+    <div class="portfolio-section"> <!--
         <img src="https://via.placeholder.com/400" alt="Project 8">
         <div class="text-content">
             <h2>Project Title 8</h2>
@@ -564,7 +786,7 @@
     <div class="testimonial">
         <h2>What Others Are Saying</h2>
         <p>
-            "This website design is amazing! It's clean, professional, and easy to navigate. I love how the portfolio sections are laid out and the modern aesthetic. Truly a reflection of great work!"
+            "You suck ass"
         </p>
         <div class="author">
             - John Doe, Web Developer
