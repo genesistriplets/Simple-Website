@@ -55,6 +55,77 @@
                 aboutMe.style.textAlign = 'left';
             }
         }
+
+        // Adjust text and font sizes for mobile devices
+        const body = document.body;
+        const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+        const paragraphs = document.querySelectorAll('p');
+
+        if (screenWidth <= 768) {
+            // Adjust body font size
+            body.style.fontSize = '14px';
+
+            // Adjust heading sizes
+            headings.forEach(heading => {
+                switch (heading.tagName) {
+                    case 'H1':
+                        heading.style.fontSize = '28px';
+                        break;
+                    case 'H2':
+                        heading.style.fontSize = '24px';
+                        break;
+                    case 'H3':
+                        heading.style.fontSize = '20px';
+                        break;
+                    case 'H4':
+                        heading.style.fontSize = '18px';
+                        break;
+                    case 'H5':
+                        heading.style.fontSize = '16px';
+                        break;
+                    case 'H6':
+                        heading.style.fontSize = '14px';
+                        break;
+                }
+            });
+
+            // Adjust paragraph sizes
+            paragraphs.forEach(paragraph => {
+                paragraph.style.fontSize = '14px';
+            });
+        } else {
+            // Reset body font size
+            body.style.fontSize = '16px';
+
+            // Reset heading sizes
+            headings.forEach(heading => {
+                switch (heading.tagName) {
+                    case 'H1':
+                        heading.style.fontSize = '42px';
+                        break;
+                    case 'H2':
+                        heading.style.fontSize = '36px';
+                        break;
+                    case 'H3':
+                        heading.style.fontSize = '24px';
+                        break;
+                    case 'H4':
+                        heading.style.fontSize = '20px';
+                        break;
+                    case 'H5':
+                        heading.style.fontSize = '18px';
+                        break;
+                    case 'H6':
+                        heading.style.fontSize = '16px';
+                        break;
+                }
+            });
+
+            // Reset paragraph sizes
+            paragraphs.forEach(paragraph => {
+                paragraph.style.fontSize = '16px';
+            });
+        }
     }
 
     // Initial call to handleResize to set the correct layout on page load
