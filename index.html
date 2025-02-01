@@ -5,33 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Portfolio For Reading and Writing</title>
 
-
-    <!-- JavaScript inside the HTML file -->
     <script>
-        // Function to adjust font sizes based on window width
-        function adjustLayout() {
-            const width = window.innerWidth;
+    // Function to handle resizing and resolution issues
+    function handleResize() {
+        const screenWidth = window.innerWidth;
 
-            // Adjust font sizes and container size based on the width of the screen
-            if (width < 600) {
-                document.querySelector('h1').style.fontSize = '1.5em';
-                document.querySelector('p').style.fontSize = '1em';
-                document.querySelector('.container').style.padding = '10px';
-            } else if (width >= 600 && width < 1200) {
-                document.querySelector('h1').style.fontSize = '2em';
-                document.querySelector('p').style.fontSize = '1.2em';
-                document.querySelector('.container').style.padding = '20px';
+        // Adjust banner height for mobile devices
+        const banner = document.querySelector('.banner');
+        if (banner) {
+            if (screenWidth <= 768) {
+                banner.style.height = 'auto';
+                banner.style.padding = '20px';
             } else {
-                document.querySelector('h1').style.fontSize = '2.5em';
-                document.querySelector('p').style.fontSize = '1.5em';
-                document.querySelector('.container').style.padding = '30px';
+                banner.style.height = '350px';
+                banner.style.padding = '40px';
             }
         }
 
-        // Call the function on initial page load and whenever the window is resized
-        window.addEventListener('resize', adjustLayout);
-        window.addEventListener('load', adjustLayout);
-    </script>
+        // Adjust image sizes in portfolio sections for mobile devices
+        const portfolioImages = document.querySelectorAll('.portfolio-section img');
+        portfolioImages.forEach(img => {
+            if (screenWidth <= 768) {
+                img.style.width = '80%';
+                img.style.maxWidth = '300px';
+            } else {
+                img.style.width = '400px';
+                img.style.height = '400px';
+            }
+        });
+
+        // Adjust template padding for mobile devices
+        const templates = document.querySelectorAll('.template');
+        templates.forEach(template => {
+            if (screenWidth <= 768) {
+                template.style.padding = '20px';
+            } else {
+                template.style.padding = '60px';
+            }
+        });
+
+        // Adjust about-me section layout for mobile devices
+        const aboutMe = document.querySelector('.about-me');
+        if (aboutMe) {
+            if (screenWidth <= 768) {
+                aboutMe.style.flexDirection = 'column';
+                aboutMe.style.textAlign = 'center';
+            } else {
+                aboutMe.style.flexDirection = 'row';
+                aboutMe.style.textAlign = 'left';
+            }
+        }
+    }
+
+    // Initial call to handleResize to set the correct layout on page load
+    handleResize();
+
+    // Add event listener for window resize to handle dynamic changes
+    window.addEventListener('resize', handleResize);
+</script>
 
     <style>
         /* General Reset */
@@ -529,7 +560,7 @@
 </head>
 <body>
     <header>
-       <h3>Ham</h3>
+       <h3>sullezaportfolio.online</h3>
 	<h5>My portfolio for Reading and Writing</h5>
     </header>
 
