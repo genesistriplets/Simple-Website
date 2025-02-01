@@ -4,137 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Portfolio For Reading and Writing</title>
-
-    <script>
-    // Function to handle resizing and resolution issues
-    function handleResize() {
-        const screenWidth = window.innerWidth;
-
-        // Adjust banner height for mobile devices
-        const banner = document.querySelector('.banner');
-        if (banner) {
-            if (screenWidth <= 768) {
-                banner.style.height = 'auto';
-                banner.style.padding = '20px';
-            } else {
-                banner.style.height = '350px';
-                banner.style.padding = '40px';
-            }
-        }
-
-        // Adjust image sizes in portfolio sections for mobile devices
-        const portfolioImages = document.querySelectorAll('.portfolio-section img');
-        portfolioImages.forEach(img => {
-            if (screenWidth <= 768) {
-                img.style.width = '80%';
-                img.style.maxWidth = '300px';
-            } else {
-                img.style.width = '400px';
-                img.style.height = '400px';
-            }
-        });
-
-        // Adjust template padding for mobile devices
-        const templates = document.querySelectorAll('.template');
-        templates.forEach(template => {
-            if (screenWidth <= 768) {
-                template.style.padding = '20px';
-            } else {
-                template.style.padding = '60px';
-            }
-        });
-
-        // Adjust about-me section layout for mobile devices
-        const aboutMe = document.querySelector('.about-me');
-        if (aboutMe) {
-            if (screenWidth <= 768) {
-                aboutMe.style.flexDirection = 'column';
-                aboutMe.style.textAlign = 'center';
-            } else {
-                aboutMe.style.flexDirection = 'row';
-                aboutMe.style.textAlign = 'left';
-            }
-        }
-
-        // Adjust text and font sizes for mobile devices
-        const body = document.body;
-        const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
-        const paragraphs = document.querySelectorAll('p');
-
-        if (screenWidth <= 768) {
-            // Adjust body font size
-            body.style.fontSize = '14px';
-
-            // Adjust heading sizes
-            headings.forEach(heading => {
-                switch (heading.tagName) {
-                    case 'H1':
-                        heading.style.fontSize = '28px';
-                        break;
-                    case 'H2':
-                        heading.style.fontSize = '24px';
-                        break;
-                    case 'H3':
-                        heading.style.fontSize = '20px';
-                        break;
-                    case 'H4':
-                        heading.style.fontSize = '18px';
-                        break;
-                    case 'H5':
-                        heading.style.fontSize = '16px';
-                        break;
-                    case 'H6':
-                        heading.style.fontSize = '14px';
-                        break;
-                }
-            });
-
-            // Adjust paragraph sizes
-            paragraphs.forEach(paragraph => {
-                paragraph.style.fontSize = '14px';
-            });
-        } else {
-            // Reset body font size
-            body.style.fontSize = '16px';
-
-            // Reset heading sizes
-            headings.forEach(heading => {
-                switch (heading.tagName) {
-                    case 'H1':
-                        heading.style.fontSize = '42px';
-                        break;
-                    case 'H2':
-                        heading.style.fontSize = '36px';
-                        break;
-                    case 'H3':
-                        heading.style.fontSize = '24px';
-                        break;
-                    case 'H4':
-                        heading.style.fontSize = '20px';
-                        break;
-                    case 'H5':
-                        heading.style.fontSize = '18px';
-                        break;
-                    case 'H6':
-                        heading.style.fontSize = '16px';
-                        break;
-                }
-            });
-
-            // Reset paragraph sizes
-            paragraphs.forEach(paragraph => {
-                paragraph.style.fontSize = '16px';
-            });
-        }
-    }
-
-    // Initial call to handleResize to set the correct layout on page load
-    handleResize();
-
-    // Add event listener for window resize to handle dynamic changes
-    window.addEventListener('resize', handleResize);
-</script>
-
     <style>
         /* General Reset */
         * {
@@ -179,7 +48,7 @@
             flex-direction: column;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(58, 12, 163, 0.5);
-            padding: 40px;
+            padding: 10px;
         }
 
         .banner h1 {
@@ -201,6 +70,7 @@
             width: 90%;
             max-width: 1200px;
             margin: 50px auto;
+                        padding: 10px;
         }
 
         }
@@ -209,7 +79,8 @@
         .container2 {
             width: 90%;
             max-width: 500px;
-            margin: 50px auto;
+            margin: 70px auto;
+            margin-bottom: 40px;
         }
 
         .content {
@@ -241,6 +112,7 @@
             gap: 80px;
         }
 
+
         /* Template Box */
         .template {
             background: rgba(30, 30, 47, 0.9);
@@ -269,7 +141,7 @@
         .template h2 {
             font-size: 32px;
             color: #9f86ff;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
             text-align: Center
         }
 
@@ -678,8 +550,8 @@
         <!-- First Box -->
         <div class="small-box">
             <!-- <img src="image.jpg" alt="Optional Image"> <!-- Optional Image -->
-            <h1>The usefulness of reading</h1>
-            <!-- <h3>Why is reading useful?</h3> -->
+            <h3>The usefulness of reading</h3>
+           <h3>‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ ‎ </h3>
         </div>
     </div>
 
@@ -703,7 +575,7 @@
         <div class="box">
              <!-- <img src="image2.jpg" alt="Image 2"> <!-- Optional Image -->
             <h3>To learn</h3>
-            <p>We've progressed a lot as a Socity, and reading has became a part of our lives as it helps us be educated, be entertained with, and understand concepts that can't be said. Reading has helped me, you, all of us to be ishape our world this way.</p>
+            <p>We've progressed a lot as a Society, and reading has became a part of our lives as it helps us be educated, be entertained with, and understand concepts that can't be said. Reading has helped me, you, all of us to be ishape our world this way.</p>
         </div>
 
 
@@ -925,4 +797,136 @@
     </div>
 
 </body>
+
+
+  <script>
+    // Function to handle resizing and resolution issues
+    function handleResize() {
+        const screenWidth = window.innerWidth;
+
+        // Adjust banner height for mobile devices
+        const banner = document.querySelector('.banner');
+        if (banner) {
+            if (screenWidth <= 768) {
+                banner.style.height = 'auto';
+                banner.style.padding = '20px';
+            } else {
+                banner.style.height = '350px';
+                banner.style.padding = '40px';
+            }
+        }
+
+        // Adjust image sizes in portfolio sections for mobile devices
+        const portfolioImages = document.querySelectorAll('.portfolio-section img');
+        portfolioImages.forEach(img => {
+            if (screenWidth <= 768) {
+                img.style.width = '80%';
+                img.style.maxWidth = '300px';
+            } else {
+                img.style.width = '400px';
+                img.style.height = '400px';
+            }
+        });
+
+        // Adjust template padding for mobile devices
+        const templates = document.querySelectorAll('.template');
+        templates.forEach(template => {
+            if (screenWidth <= 768) {
+                template.style.padding = '20px';
+            } else {
+                template.style.padding = '60px';
+            }
+        });
+
+        // Adjust about-me section layout for mobile devices
+        const aboutMe = document.querySelector('.about-me');
+        if (aboutMe) {
+            if (screenWidth <= 768) {
+                aboutMe.style.flexDirection = 'column';
+                aboutMe.style.textAlign = 'center';
+            } else {
+                aboutMe.style.flexDirection = 'row';
+                aboutMe.style.textAlign = 'left';
+            }
+        }
+
+        // Adjust text and font sizes for mobile devices
+        const body = document.body;
+        const headings = document.querySelectorAll('h1, h2, h3, h4, h5, h6');
+        const paragraphs = document.querySelectorAll('p');
+
+        if (screenWidth <= 768) {
+            // Adjust body font size
+            body.style.fontSize = '14px';
+
+            // Adjust heading sizes
+            headings.forEach(heading => {
+                switch (heading.tagName) {
+                    case 'H1':
+                        heading.style.fontSize = '28px';
+                        break;
+                    case 'H2':
+                        heading.style.fontSize = '24px';
+                        break;
+                    case 'H3':
+                        heading.style.fontSize = '20px';
+                        break;
+                    case 'H4':
+                        heading.style.fontSize = '18px';
+                        break;
+                    case 'H5':
+                        heading.style.fontSize = '16px';
+                        break;
+                    case 'H6':
+                        heading.style.fontSize = '14px';
+                        break;
+                }
+            });
+
+            // Adjust paragraph sizes
+            paragraphs.forEach(paragraph => {
+                paragraph.style.fontSize = '14px';
+            });
+        } else {
+            // Reset body font size
+            body.style.fontSize = '16px';
+
+            // Reset heading sizes
+            headings.forEach(heading => {
+                switch (heading.tagName) {
+                    case 'H1':
+                        heading.style.fontSize = '42px';
+                        break;
+                    case 'H2':
+                        heading.style.fontSize = '36px';
+                        break;
+                    case 'H3':
+                        heading.style.fontSize = '24px';
+                        break;
+                    case 'H4':
+                        heading.style.fontSize = '20px';
+                        break;
+                    case 'H5':
+                        heading.style.fontSize = '18px';
+                        break;
+                    case 'H6':
+                        heading.style.fontSize = '16px';
+                        break;
+                }
+            });
+
+            // Reset paragraph sizes
+            paragraphs.forEach(paragraph => {
+                paragraph.style.fontSize = '16px';
+            });
+        }
+    }
+
+    // Initial call to handleResize to set the correct layout on page load
+    handleResize();
+
+    // Add event listener for window resize to handle dynamic changes
+    window.addEventListener('resize', handleResize);
+</script>
+
 </html>
