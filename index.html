@@ -4,6 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Portfolio For Reading and Writing</title>
+
+
+    <!-- JavaScript inside the HTML file -->
+    <script>
+        // Function to adjust font sizes based on window width
+        function adjustLayout() {
+            const width = window.innerWidth;
+
+            // Adjust font sizes and container size based on the width of the screen
+            if (width < 600) {
+                document.querySelector('h1').style.fontSize = '1.5em';
+                document.querySelector('p').style.fontSize = '1em';
+                document.querySelector('.container').style.padding = '10px';
+            } else if (width >= 600 && width < 1200) {
+                document.querySelector('h1').style.fontSize = '2em';
+                document.querySelector('p').style.fontSize = '1.2em';
+                document.querySelector('.container').style.padding = '20px';
+            } else {
+                document.querySelector('h1').style.fontSize = '2.5em';
+                document.querySelector('p').style.fontSize = '1.5em';
+                document.querySelector('.container').style.padding = '30px';
+            }
+        }
+
+        // Call the function on initial page load and whenever the window is resized
+        window.addEventListener('resize', adjustLayout);
+        window.addEventListener('load', adjustLayout);
+    </script>
+
     <style>
         /* General Reset */
         * {
@@ -510,7 +539,7 @@
             <h1>ABOUT ME</h1>
             <h3>My name's Genesis Parreño Sulleza</h3>
             <p>
-                Seventeen years old and striving to become a computer engineering student someday. My hobbies are mainly tinkering with random things I find that interests me, and randomly, geography. I'm known for my skills when it comes to computers and such and I'm also a heavy procrastinator, but manages to cram all of it in time. I rarely get angry and just either composed or very, very energetic. I value my life very much and would spend all of it to have fun rather than to have stress.
+                Seventeen years old and striving to become a computer engineering student someday. My hobbies are mainly tinkering with random things I find that interests me, and randomly, geography. I'm known for my skills when it comes to computers and such and I'm also a heavy procrastinator, but manages to cram all of it in time. I value my life very much and would spend all of it to have fun rather than to have stressing on things.
             </p>
         </div>
     </div>
@@ -597,7 +626,7 @@
         <div class="template">
             <img src="https://via.placeholder.com/400x400" alt="Placeholder" style="float: left; margin-right: 30px; max-width: 40%;">
             <h2>Pre-Reading</h2>
-            <p></p>
+            <p>Pre-reading is a stage where one is</p>
             <div style="clear: both;"></div>
         </div>
 
