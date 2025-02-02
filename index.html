@@ -6,32 +6,143 @@
     <title>E-Portfolio For Reading and Writing</title>
     <style>
         /* General Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-        /* Dark Mode Theme with Blue-Purple Gradient */
-        body {
-            background: linear-gradient(to bottom right, #0a0a0a, #1b1b2f);
-            color: #e0e0e0;
-            line-height: 1.8;
-        }
+/* Dark Mode Theme with Animated Background */
+body {
+    background: linear-gradient(to bottom right, #0a0a0a, #1b1b2f);
+    color: #e0e0e0;
+    line-height: 1.8;
+    overflow-x: hidden;
+    position: relative;
+}
 
-        /* Header */
-        header {
-            background: #1b1b2f;
-            color: #9f86ff;
-            padding: 20px 0;
-            text-align: center;
-            font-size: 36px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            border-bottom: 3px solid #7b2cbf;
-            box-shadow: 0 2px 20px rgba(123, 44, 191, 0.3);
-        }
+/* Animated Stars */
+body::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+    background-size: 3px 3px;
+    opacity: 0.15;
+    animation: starsMove 10s linear infinite;
+    z-index: -1;
+
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #1b1b2f, #22213c);
+    color: #9f86ff;
+    padding: 25px 0;
+    text-align: center;
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    border-bottom: 3px solid #7b2cbf;
+    box-shadow: 0 4px 20px rgba(123, 44, 191, 0.4);
+    text-transform: uppercase;
+    text-shadow: 2px 2px 8px rgba(159, 134, 255, 0.5);
+    animation: fadeIn 1.2s ease-in-out;
+    position: relative;
+}
+
+/* Subtitle */
+header h5 {
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 1.2px;
+    margin-top: 5px;
+    opacity: 0.8;
+}
+
+/* Header Glow Effect */
+header:hover {
+    border-bottom: 3px solid #9f86ff;
+    transition: border-bottom 0.3s ease-in-out;
+    box-shadow: 0 0 10px rgba(159, 134, 255, 0.5);
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Subtle Moving Stars */
+@keyframes starsMove {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100% 100%;
+    }
+}
+
+/* Particle Animation */
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+       /* Header */
+header {
+    background: linear-gradient(135deg, #1b1b2f, #22213c);
+    color: #9f86ff;
+    padding: 25px 0;
+    text-align: center;
+    font-size: 38px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    border-bottom: 3px solid #7b2cbf;
+    box-shadow: 0 4px 20px rgba(123, 44, 191, 0.4);
+    text-transform: uppercase;
+    text-shadow: 2px 2px 8px rgba(159, 134, 255, 0.5);
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+/* Subtitle */
+header h5 {
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 1.2px;
+    margin-top: 5px;
+    opacity: 0.8;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Border Glow Effect */
+header:hover {
+    border-bottom: 3px solid #9f86ff;
+    transition: border-bottom 0.3s ease-in-out;
+}
+
 
 
 
@@ -1277,6 +1388,67 @@ window.addEventListener('resize', enforceDesktopMode);
 
 // Optional: Run on orientation change
 window.addEventListener('orientationchange', enforceDesktopMode);
+
+
+    const canvas = document.createElement("canvas");
+    document.body.appendChild(canvas);
+    const ctx = canvas.getContext("2d");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    let particles = [];
+
+    class Particle {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 3;
+            this.speedX = Math.random() * 1 - 0.5;
+            this.speedY = Math.random() * 1 - 0.5;
+        }
+
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+
+            if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+            if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+        }
+
+        draw() {
+            ctx.fillStyle = "rgba(159, 134, 255, 0.8)";
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+
+    function createParticles() {
+        particles = [];
+        for (let i = 0; i < 80; i++) {
+            particles.push(new Particle());
+        }
+    }
+
+    function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach(p => {
+            p.update();
+            p.draw();
+        });
+        requestAnimationFrame(animateParticles);
+    }
+
+    createParticles();
+    animateParticles();
+
+    window.addEventListener("resize", () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        createParticles();
+    });
+
 </script>
 
 </html>
