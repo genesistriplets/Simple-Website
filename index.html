@@ -975,6 +975,32 @@
 
     // Add event listener for window resize to handle dynamic changes
     window.addEventListener('resize', handleResize);
+/*  */
+function enforceDesktopMode() {
+    // Check if the screen width is typical for mobile devices
+    if (window.innerWidth <= 768) {
+        // Create or modify the viewport meta tag
+        let viewportMeta = document.querySelector('meta[name="viewport"]');
+
+        if (!viewportMeta) {
+            viewportMeta = document.createElement('meta');
+            viewportMeta.setAttribute('name', 'viewport');
+            document.head.appendChild(viewportMeta);
+        }
+
+        // Set desktop-scale viewport properties
+        viewportMeta.setAttribute('content', 'width=1200, initial-scale=1.0, maximum-scale=1.0, user-scalable=no');
+    }
+}
+
+// Run on initial load
+window.addEventListener('load', enforceDesktopMode);
+
+// Run on window resize
+window.addEventListener('resize', enforceDesktopMode);
+
+// Optional: Run on orientation change
+window.addEventListener('orientationchange', enforceDesktopMode);
 </script>
 
 </html>
