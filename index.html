@@ -610,6 +610,74 @@ header:hover {
         width: 100%; /* On smaller screens, boxes will take full width */
     }
 }
+
+ /* Pop-up Modal Styles */
+    .popup-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 1000;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .popup-content {
+        background-color: #1b1b2f;
+        padding: 20px;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        max-width: 500px;
+        width: 90%;
+    }
+
+    .popup-content h2 {
+        color: #9f86ff;
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+
+    .popup-content img {
+        width: 100%;
+        max-height: 300px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 20px;
+    }
+
+    .popup-content a {
+        display: inline-block;
+        margin: 10px;
+        padding: 10px 20px;
+        background-color: #7b2cbf;
+        color: #e0e0e0;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .popup-content a:hover {
+        background-color: #9f86ff;
+    }
+
+    .popup-content p {
+        color: #c0b3ff;
+        font-size: 16px;
+        margin-top: 20px;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        color: #e0e0e0;
+        font-size: 24px;
+        cursor: pointer;
+    }
     </style>
     </style>
 </head>
@@ -619,6 +687,17 @@ header:hover {
        <h3>sullezaportfolio.online</h3>
 	<h5>My portfolio for Reading and Writing</h5>
     </header>
+
+    <div class="popup-modal" id="popupModal">
+    <div class="popup-content">
+        <span class="close-btn" id="closeBtn">&times;</span>
+        <h2>Canva and PDF of the Printed Version:</h2>
+        <img src="/Pictures/Main.png" alt="Pop-up Image">
+        <a href="/Downloads/SullezaPortfolioMain.pdf">Printable Portfolio</a>
+        <a href="https://www.canva.com/design/DAGeRniQrb8/LRIk09IM-nwD-pKyueXaRQ/edit?utm_content=DAGeRniQrb8&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton">Link to the Canva Page</a>
+        <p>PDF and Canva links</p>
+    </div>
+</div>
 
     <div class="about-me">
         <img src="/Pitures/1.jpg" alt="Your Picture Here">
@@ -814,7 +893,7 @@ So, discussion time! So, topic sentence, this is the main idea or the central po
                 <!-- Template 2: Side Image Layout -->
         <div class="template">
             <!-- <img src="https://via.placeholder.com/400x400" alt="Placeholder" style="float: left; margin-right: 30px; max-width: 40%;"> -->
-            <h2>Previewing</h2>
+            <h2>Scanning</h2>
             <p>Scanning is another type of rapid reading. It is a skill where, during reading, the reader finds a specific information and avoids extras.</p>
             <div style="clear: both;"></div>
         </div>
@@ -1253,6 +1332,25 @@ Also, I have to add a mindset of "Never judge a book by its cover," because from
 
 
   <script>
+
+   // Show the pop-up modal when the page loads
+    window.onload = function() {
+        document.getElementById('popupModal').style.display = 'flex';
+    };
+
+    // Close the pop-up modal when the close button is clicked
+    document.getElementById('closeBtn').onclick = function() {
+        document.getElementById('popupModal').style.display = 'none';
+    };
+
+    // Close the pop-up modal when clicking outside the modal content
+    window.onclick = function(event) {
+        if (event.target === document.getElementById('popupModal')) {
+            document.getElementById('popupModal').style.display = 'none';
+        }
+    };
+
+
 
     // Function to handle resizing and resolution issues
     function handleResize() {
